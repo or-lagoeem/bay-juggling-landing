@@ -6,7 +6,7 @@
   <title>מופע הג׳אגלינג של ביי - חוויה בלתי נשכחת</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #FF5E00;
@@ -23,19 +23,87 @@
       line-height: 1.6;
     }
     
-    /* אנימציות */
-    @keyframes fadeIn {
+    /* עיצוב ראש העמוד */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    .video-bg iframe {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+    
+    .hero-content {
+      position: absolute;
+      bottom: 20%;
+      right: 10%;
+      left: 10%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .message {
+      font-size: 1.5rem;
+      padding: 15px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, rgba(255,94,0,0.3), transparent);
+      border-right: 3px solid var(--primary);
+      animation: fadeInUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .message:nth-child(1) { animation-delay: 0.3s; }
+    .message:nth-child(2) { animation-delay: 0.6s; }
+    .message:nth-child(3) { animation-delay: 0.9s; }
+    
+    @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* מבנה ראשי */
+    /* שאר העיצובים */
+    .content {
+      padding: 80px 10%;
+      background: var(--dark);
+    }
+    
     header {
       position: fixed;
       top: 20px;
       left: 20px;
       z-index: 100;
-      animation: fadeIn 0.8s 0.2s both;
     }
     
     header img {
@@ -47,31 +115,9 @@
       transform: scale(1.1);
     }
     
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      overflow: hidden;
-    }
-    
-    .video-bg iframe {
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      opacity: 0.7;
-    }
-    
-    .content {
-      padding: 120px 10% 60px;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    
     .section {
       margin-bottom: 80px;
-      max-width: 900px;
+      max-width: 1000px;
       margin-right: auto;
       margin-left: auto;
       background: rgba(30, 30, 30, 0.8);
@@ -82,12 +128,15 @@
       animation: fadeIn 0.6s forwards;
     }
     
-    /* אנימציות עם עיכובים */
-    .section:nth-child(1) { animation-delay: 0.3s; }
-    .section:nth-child(2) { animation-delay: 0.5s; }
-    .section:nth-child(3) { animation-delay: 0.7s; }
-    .section:nth-child(4) { animation-delay: 0.9s; }
-    .section:nth-child(5) { animation-delay: 1.1s; }
+    .section:nth-child(1) { animation-delay: 1.2s; }
+    .section:nth-child(2) { animation-delay: 1.4s; }
+    .section:nth-child(3) { animation-delay: 1.6s; }
+    .section:nth-child(4) { animation-delay: 1.8s; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     
     h2 {
       text-align: center;
@@ -222,8 +271,16 @@
     
     /* מובייל */
     @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .message {
+        font-size: 1.2rem;
+      }
+      
       .content {
-        padding: 100px 5% 40px;
+        padding: 60px 5%;
       }
       
       .section {
@@ -246,21 +303,28 @@
 </head>
 <body>
 
-<header>
-  <img src="logo.png" alt="לוגו מופע הג'אגלינג של ביי">
-</header>
-
-<div class="video-bg">
-  <iframe src="https://www.youtube.com/embed/pHHC5sCHjIg?autoplay=1&mute=1&loop=1&playlist=pHHC5sCHjIg" frameborder="0" allowfullscreen></iframe>
+<!-- חלק ה-Hero עם הוידאו -->
+<div class="hero-section">
+  <div class="video-bg">
+    <iframe src="https://www.youtube.com/embed/pHHC5sCHjIg?autoplay=1&mute=1&loop=1&playlist=pHHC5sCHjIg" frameborder="0" allowfullscreen></iframe>
+  </div>
+  
+  <div class="hero-content">
+    <h1 class="hero-title">מופע הג'אגלינג של ביי</h1>
+    
+    <div class="hero-messages">
+      <div class="message">🔥 אש, לדים, חישוקים וג'אגלינג – מופע סוחף לכל גיל!</div>
+      <div class="message">🎉 ריגוש, צבע וקצב שנשארים בלב הרבה אחרי שהאורות כבים</div>
+      <div class="message">💫 לאירועים בלתי נשכחים – סדנאות, הופעות וקסם אמיתי!</div>
+    </div>
+  </div>
 </div>
 
+<!-- שאר התוכן -->
 <div class="content">
-  <div class="section">
-    <h2>🔥 אש, לדים, חישוקים וג'אגלינג – מופע סוחף לכל גיל!</h2>
-    <p>🎉 ריגוש, צבע וקצב שנשארים בלב הרבה אחרי שהאורות כבים.</p>
-    <p>💫 לאירועים בלתי נשכחים – סדנאות, הופעות וקסם אמיתי!</p>
-    <p>מתאים לילדים, למבוגרים, ולמי שרוצה להיזכר כמה יופי יש בפשטות.</p>
-  </div>
+  <header>
+    <img src="logo.png" alt="לוגו מופע הג'אגלינג של ביי">
+  </header>
 
   <div class="section form">
     <h2>רוצים שנחזור אליכם עם הצעה מגניבה?</h2>
@@ -280,11 +344,9 @@
   <div class="section">
     <h2>גלריית תמונות</h2>
     <div class="gallery">
-      <img src="gallery1.jpg" alt="מופע ג'אגלינג באירוע פרטי">
-      <img src="gallery2.jpg" alt="סדנת ג'אגלינג לילדים">
-      <img src="gallery3.jpg" alt="מופע אש מרהיב">
-      <img src="gallery4.jpg" alt="הופעה באירוע חברה">
-      <img src="gallery5.jpg" alt="ג'אגלינג עם חישוקי לדים">
+      <img src="gallery1.jpg" alt="מופע ג'אגלינג באירוע פרטי" loading="lazy">
+      <img src="gallery2.jpg" alt="סדנת ג'אגלינג לילדים" loading="lazy">
+      <img src="gallery3.jpg" alt="מופע אש מרהיב" loading="lazy">
     </div>
   </div>
 
@@ -303,21 +365,6 @@
     <div>שיעורים אישיים למתחילים</div>
     <div>שיעורים קבוצתיים למתקדמים</div>
     <div>קבלות פנים לאירועים</div>
-  </div>
-
-  <div class="section form-end">
-    <h2>בואו ניצור רגע קסום יחד!</h2>
-    <form action="mailto:Bayjuggling@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="שם" required>
-      <input type="email" name="email" placeholder="אימייל" required>
-      <textarea name="message" placeholder="הודעה" rows="4" required></textarea>
-      <button type="submit">שלח פרטים</button>
-    </form>
-    <a href="https://wa.me/972526569086?text=היי%20אני%20רוצה%20לשמוע%20עוד%20על%20המופע%20של%20ביי!" target="_blank" style="text-decoration: none;">
-      <button style="margin-top: 15px; background: linear-gradient(to right, #25D366, #128C7E);">
-        שלחו הודעה בוואטסאפ
-      </button>
-    </a>
   </div>
 
   <div class="social-links">
