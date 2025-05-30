@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>מופע הג׳אגלינג של ביי</title>
+  <title>מופע הג׳אגלינג של ביי - חוויה בלתי נשכחת</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #FF5E00;
+      --secondary: #FFC107;
+      --dark: #121212;
+      --light: #f8f9fa;
+    }
+    
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      color: white;
-      background: black;
+      color: var(--light);
+      background: var(--dark);
+      line-height: 1.6;
     }
     
-    /* עיצוב סרטון הרקע */
-    .video-container {
+    /* עיצוב ראש העמוד */
+    .hero-section {
       position: relative;
-      width: 100%;
-      height: 60vh; /* גובה הסרטון */
+      height: 100vh;
       overflow: hidden;
     }
     
@@ -36,89 +43,340 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
+      opacity: 0.8;
     }
     
-    /* עיצוב הכותרות מתחת לסרטון */
-    .header-content {
-      padding: 40px 20px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-    }
-    
-    .main-title {
-      font-size: 2.5rem;
-      color: #ffd700;
-      margin-bottom: 20px;
-    }
-    
-    .highlight {
-      font-size: 1.3rem;
-      line-height: 1.8;
-      margin: 15px 0;
-    }
-    
-    /* שאר העיצובים הקיימים שלך */
-    header {
+    .hero-content {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 10;
+      bottom: 20%;
+      right: 10%;
+      left: 10%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .message {
+      font-size: 1.5rem;
+      padding: 15px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, rgba(255,94,0,0.3), transparent);
+      border-right: 3px solid var(--primary);
+      animation: fadeInUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .message:nth-child(1) { animation-delay: 0.3s; }
+    .message:nth-child(2) { animation-delay: 0.6s; }
+    .message:nth-child(3) { animation-delay: 0.9s; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* שאר העיצובים */
+    .content {
+      padding: 80px 10%;
+      background: var(--dark);
+    }
+    
+    header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
     }
     
     header img {
-      height: 60px;
+      height: 70px;
+      transition: all 0.3s;
     }
     
-    .content {
-      padding: 20px;
+    header img:hover {
+      transform: scale(1.1);
     }
     
-    /* ... (השאר את שאר העיצובים הקיימים שלך) ... */
+    .section {
+      margin-bottom: 80px;
+      max-width: 1000px;
+      margin-right: auto;
+      margin-left: auto;
+      background: rgba(30, 30, 30, 0.8);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      animation: fadeIn 0.6s forwards;
+    }
     
+    .section:nth-child(1) { animation-delay: 1.2s; }
+    .section:nth-child(2) { animation-delay: 1.4s; }
+    .section:nth-child(3) { animation-delay: 1.6s; }
+    .section:nth-child(4) { animation-delay: 1.8s; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    h2 {
+      text-align: center;
+      color: var(--secondary);
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    
+    /* טפסים */
+    .form, .form-end {
+      background: rgba(40, 40, 40, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    input, textarea, button {
+      width: 100%;
+      margin: 15px 0;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Rubik', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    input, textarea {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #444;
+      color: white;
+    }
+    
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      background: rgba(255,255,255,0.15);
+      outline: none;
+    }
+    
+    button {
+      background: linear-gradient(to right, var(--primary), #FF8A00);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 94, 0, 0.4);
+    }
+    
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 94, 0, 0.6);
+    }
+    
+    /* גלריה */
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .gallery img {
+      height: 250px;
+      border-radius: 12px;
+      scroll-snap-align: start;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* שירותים */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    
+    .services div {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 10px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .services div:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+    
+    /* מדיה חברתית */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 28px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px) scale(1.2);
+      color: var(--secondary);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* מובייל */
     @media (max-width: 768px) {
-      .video-container {
-        height: 40vh;
+      .hero-title {
+        font-size: 2.5rem;
       }
       
-      .main-title {
-        font-size: 2rem;
+      .message {
+        font-size: 1.2rem;
       }
       
-      .highlight {
-        font-size: 1.1rem;
+      .content {
+        padding: 60px 5%;
+      }
+      
+      .section {
+        padding: 25px;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .gallery img {
+        height: 180px;
+      }
+      
+      .services {
+        grid-template-columns: 1fr 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- חלק הווידאו -->
-<div class="video-container">
+<!-- חלק ה-Hero עם הוידאו -->
+<div class="hero-section">
   <div class="video-bg">
     <iframe src="https://www.youtube.com/embed/pHHC5sCHjIg?autoplay=1&mute=1&loop=1&playlist=pHHC5sCHjIg" frameborder="0" allowfullscreen></iframe>
   </div>
-</div>
-
-<!-- כותרות מתחת לוידאו -->
-<div class="header-content">
-  <h1 class="main-title">מופע הג'אגלינג של ביי</h1>
   
-  <div class="highlight">🔥 אש, לדים, חישוקים וג'אגלינג – מופע סוחף לכל גיל!</div>
-  <div class="highlight">🎉 ריגוש, צבע וקצב שנשארים בלב הרבה אחרי שהאורות כבים.</div>
-  <div class="highlight">💫 לאירועים בלתי נשכחים – סדנאות, הופעות וקסם אמיתי!</div>
-  <div class="highlight">מתאים לילדים, למבוגרים, ולמי שרוצה להיזכר כמה יופי יש בפשטות.</div>
+  <div class="hero-content">
+    <h1 class="hero-title">מופע הג'אגלינג של ביי</h1>
+    
+    <div class="hero-messages">
+      <div class="message">🔥 אש, לדים, חישוקים וג'אגלינג – מופע סוחף לכל גיל!</div>
+      <div class="message">🎉 ריגוש, צבע וקצב שנשארים בלב הרבה אחרי שהאורות כבים</div>
+      <div class="message">💫 לאירועים בלתי נשכחים – סדנאות, הופעות וקסם אמיתי!</div>
+    </div>
+  </div>
 </div>
 
-<!-- שאר התוכן שלך -->
+<!-- שאר התוכן -->
 <div class="content">
   <header>
-    <img src="logo.png" alt="לוגו">
+    <img src="logo.png" alt="לוגו מופע הג'אגלינג של ביי">
   </header>
 
-  <!-- כאן יישאר כל שאר הקוד הקיים שלך -->
-  <!-- הטופס, הגלריה, השירותים וכו' -->
-  
+  <div class="section form">
+    <h2>רוצים שנחזור אליכם עם הצעה מגניבה?</h2>
+    <form action="mailto:Bayjuggling@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="שם מלא" required>
+      <input type="email" name="email" placeholder="כתובת אימייל" required>
+      <textarea name="message" placeholder="הודעה" rows="4" required></textarea>
+      <button type="submit">שלח פנייה</button>
+    </form>
+    <a href="https://wa.me/972526569086" target="_blank" style="text-decoration: none;">
+      <button style="margin-top: 15px; background: linear-gradient(to right, #25D366, #128C7E);">
+        דברו איתי בוואטסאפ
+      </button>
+    </a>
+  </div>
+
+  <div class="section">
+    <h2>גלריית תמונות</h2>
+    <div class="gallery">
+      <img src="gallery1.jpg" alt="מופע ג'אגלינג באירוע פרטי" loading="lazy">
+      <img src="gallery2.jpg" alt="סדנת ג'אגלינג לילדים" loading="lazy">
+      <img src="gallery3.jpg" alt="מופע אש מרהיב" loading="lazy">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>הצצה למה שמחכה לכם...</h2>
+    <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+      <video src="demo-video.mp4" controls style="width: 100%; display: block;"></video>
+    </div>
+  </div>
+
+  <div class="section services">
+    <h2>השירותים שלנו</h2>
+    <div>מופעי אש מרהיבים</div>
+    <div>סדנאות ג'אגלינג לילדים</div>
+    <div>הפעלות לימי הולדת</div>
+    <div>שיעורים אישיים למתחילים</div>
+    <div>שיעורים קבוצתיים למתקדמים</div>
+    <div>קבלות פנים לאירועים</div>
+  </div>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/bay_salinas" target="_blank" aria-label="אינסטגרם">📸</a>
+    <a href="https://www.tiktok.com/@bay_salinas" target="_blank" aria-label="טיקטוק">🎵</a>
+    <a href="https://youtube.com/@flowgirlbay" target="_blank" aria-label="יוטיוב">▶️</a>
+  </div>
 </div>
+
+<footer>
+  © כל הזכויות שמורות – מופע הג׳אגלינג של בֶּיי | 2024
+</footer>
 
 </body>
 </html>
