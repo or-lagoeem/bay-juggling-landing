@@ -23,10 +23,17 @@
       line-height: 1.6;
     }
     
+<<<<<<< HEAD
     /* עיצוב ראש העמוד */
     .hero-section {
       position: relative;
       height: 100vh;
+=======
+    /* עיצוב וידאו הרקע */
+    .video-container {
+      position: relative;
+      height: 70vh;
+>>>>>>> a22b8ee (עיצוב מחדש - כותרות מתחת לוידאו וגלריה מורחבת)
       overflow: hidden;
     }
     
@@ -43,6 +50,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
+<<<<<<< HEAD
       opacity: 0.8;
     }
     
@@ -61,12 +69,27 @@
     
     .hero-title {
       font-size: 3.5rem;
+=======
+      opacity: 0.9;
+    }
+    
+    /* עיצוב הכותרות מתחת לוידאו */
+    .header-content {
+      padding: 40px 10%;
+      text-align: center;
+      background: var(--dark);
+    }
+    
+    .main-title {
+      font-size: 3rem;
+>>>>>>> a22b8ee (עיצוב מחדש - כותרות מתחת לוידאו וגלריה מורחבת)
       font-weight: 900;
       color: var(--secondary);
       margin-bottom: 20px;
       text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
     
+<<<<<<< HEAD
     .hero-messages {
       display: flex;
       flex-direction: column;
@@ -75,11 +98,23 @@
     }
     
     .message {
+=======
+    .highlight-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 800px;
+    }
+    
+    .highlight {
+>>>>>>> a22b8ee (עיצוב מחדש - כותרות מתחת לוידאו וגלריה מורחבת)
       font-size: 1.5rem;
       padding: 15px;
       border-radius: 50px;
       background: linear-gradient(90deg, rgba(255,94,0,0.3), transparent);
       border-right: 3px solid var(--primary);
+<<<<<<< HEAD
       animation: fadeInUp 0.5s ease-out forwards;
       opacity: 0;
     }
@@ -91,10 +126,38 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+=======
+    }
+    
+    /* גלריה מעוצבת */
+    .gallery-container {
+      padding: 40px 5%;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+    
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.03);
+>>>>>>> a22b8ee (עיצוב מחדש - כותרות מתחת לוידאו וגלריה מורחבת)
     }
     
     /* שאר העיצובים */
     .content {
+<<<<<<< HEAD
       padding: 80px 10%;
       background: var(--dark);
     }
@@ -296,6 +359,28 @@
       }
       
       .services {
+=======
+      padding: 40px 10%;
+      background: var(--dark);
+    }
+    
+    /* ... (השאר את שאר העיצובים הקיימים שלך) ... */
+    
+    @media (max-width: 768px) {
+      .video-container {
+        height: 50vh;
+      }
+      
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .highlight {
+        font-size: 1.2rem;
+      }
+      
+      .gallery {
+>>>>>>> a22b8ee (עיצוב מחדש - כותרות מתחת לוידאו וגלריה מורחבת)
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -303,6 +388,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <!-- חלק ה-Hero עם הוידאו -->
 <div class="hero-section">
   <div class="video-bg">
@@ -380,3 +466,49 @@
 
 </body>
 </html>
+=======
+<!-- חלק הווידאו -->
+<div class="video-container">
+  <div class="video-bg">
+    <iframe src="https://www.youtube.com/embed/pHHC5sCHjIg?autoplay=1&mute=1&loop=1&playlist=pHHC5sCHjIg" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- כותרות מתחת לוידאו -->
+<div class="header-content">
+  <h1 class="main-title">מופע הג'אגלינג של ביי</h1>
+  
+  <div class="highlight-messages">
+    <div class="highlight">🔥 אש, לדים, חישוקים וג'אגלינג – מופע סוחף לכל גיל!</div>
+    <div class="highlight">🎉 ריגוש, צבע וקצב שנשארים בלב הרבה אחרי שהאורות כבים</div>
+    <div class="highlight">💫 לאירועים בלתי נשכחים – סדנאות, הופעות וקסם אמיתי!</div>
+  </div>
+</div>
+
+<!-- גלריית תמונות מעודכנת -->
+<div class="gallery-container">
+  <h2>גלריית תמונות</h2>
+  <div class="gallery">
+    <img src="gallery1.jpg" alt="מופע ג'אגלינג" loading="lazy">
+    <img src="gallery2.jpg" alt="סדנה לילדים" loading="lazy">
+    <img src="gallery3.jpg" alt="מופע אש" loading="lazy">
+    <img src="gallery4.jpg" alt="הופעה באירוע" loading="lazy">
+    <img src="gallery5.jpg" alt="ג'אגלינג עם חישוקים" loading="lazy">
+    <img src="gallery6.jpg" alt="אימון קבוצתי" loading="lazy">
+    <img src="gallery7.jpg" alt="מופע לדים" loading="lazy">
+    <img src="gallery8.jpg" alt="סדנת ג'אגלינג" loading="lazy">
+    <img src="gallery9.jpg" alt="הופעה באירוע פרטי" loading="lazy">
+    <img src="gallery10.jpg" alt="מופע במרכז העיר" loading="lazy">
+    <!-- הוסף כאן את כל תמונות הגלריה שלך -->
+  </div>
+</div>
+
+<!-- שאר התוכן שלך -->
+<div class="content">
+  <!-- כאן יישאר כל שאר הקוד הקיים שלך -->
+  <!-- הטופס, השירותים, וידאו הדמו וכו' -->
+</div>
+
+</body>
+</html>
+>>>>>>> a22b8ee (עיצוב מחדש - כותרות מתחת לוידאו וגלריה מורחבת)
